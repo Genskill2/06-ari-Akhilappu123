@@ -1,31 +1,17 @@
-int count_characters(string s) {
- int ret=0;
- for (int i=0;i<strlen(s);i++) {
-   if(isalnum(s[i]))
-   ret++;
-   }
-   return ret;
-   }
-int count_words(string s) {
- int ret=0;
- for(int i=0;i<strlen(s);i++) {
- if(s[i]==' ')
- ret++;
- }
-return ret+1; 
-}
-int count_sentences(string s) {
-int ret=0;
-for(int i=0;i<strlen(s);i++) {
- if(s[i]=='.' || s[i]=='?' || s[i]=='!') 
- ret++;
- }
- return ret; 
- }
 string ari(string s) {
-int c=count_characters(s);
-int w=count_words(s);
-int p=count_sentences(s);
+int c=0;int w=0; int p=0;
+for (int i=0;i<strlen(s);i++) {
+   if(isalnum(s[i]))
+   c++;
+   }
+for(int i=0;i<strlen(s);i++) {
+   if(s[i]==' ')
+   w++;
+   }
+for(int i=0;i<strlen(s);i++) {
+   if(s[i]=='.' || s[i]=='?' || s[i]=='!') 
+   p++;
+   }  
 float scr=4.71*c/w+.5*w/p-21.43;
 float n=scr-(int)scr;
 int score=(int)scr;
